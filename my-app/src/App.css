@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+.banner{
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.banner-horizontal{
+  width: 100%;
+  height: 170px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 91px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner-horizontal-content{
+  display: flex;
+  flex-direction: row;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8% 0 2%;
+  font-size: 24px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner-horizontal-content>img{
+  width: 178px;
+}
+
+.banner-vertical{
+  width: 117px;
+  height: 1000px;
+  background-color: black;
+  box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.card-holder{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 300px;
+  height: 300px;
+  justify-content: space-between;
+}
+
+.card-icon{
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+
+.vertical-text{
+  margin-top: 100px;
+  transform: rotate(-90deg);
   color: white;
+  height: 100px;
+  width: 300px;
+  align-items: center;
+  display: flex;
 }
 
-.App-link {
-  color: #61dafb;
+.home{
+  background-color: aqua;
+  margin-left: 14%;
+  margin-top: 5%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hello{
+  display: flex;
+  flex-direction: column;
+}
+
+.hello-name{
+  display: flex;
+}
+
+.hello-name>h1{
+  margin-right: 12px;
+}
+
+.name{
+  color: #FF0101;
 }
