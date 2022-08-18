@@ -4,16 +4,19 @@ import './index.css';
 import Banner from './components/banner.jsx';
 import reportWebVitals from './reportWebVitals';
 import Home from './home.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const data = require('./data/data.js')
 
-console.log(data);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Banner/>
-    <Home/>
+    <Router>
+      <Banner/>
+      <Routes>
+        <Route path='/user/:userId' element={<Home/>}/>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

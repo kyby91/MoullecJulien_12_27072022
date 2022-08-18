@@ -73,7 +73,6 @@
 }
 
 .home{
-  background-color: aqua;
   margin-left: 14%;
   margin-top: 5%;
 }
@@ -93,4 +92,71 @@
 
 .name{
   color: #FF0101;
+}
+
+.info-holder{
+  background-color: #FF0101;
+  margin-top: 77px;
+  display: flex;
+  flex-direction: row;
+}
+
+.graphics-holder{
+  background-color: blanchedalmond;
+  width: 77%;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.numbers-holder{
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thumbnail{
+  width: 258px;
+  height: 124px;
+  background-color: #FBFBFB;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.thumbnail-icon{
+  width: 60px;
+  height: 60px;
+  background-color: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.thumbnail-text{
+  width: 91px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: 24px;
+}
+
+.thumbnail-text>h3{
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0;
+}
+
+.thumbnail-text>p{
+  font-weight: 500;
+  font-size: 14px;
+  color: #74798C;
+  margin: 0;
 }
