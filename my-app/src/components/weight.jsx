@@ -46,27 +46,26 @@ const data = [
   },
 ];
 
-export default function Weight() {
+export default function Weight(props) {
   return(
-    <ResponsiveContainer width={700} height={300}>
+    <ResponsiveContainer width={1200} height={300}>
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={props.data}
           margin={{
             top: 5,
             right: 30,
             left: 20,
             bottom: 5,
-          }}
-        >
+          }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" tickLine={false} tick={false}/>
+          <YAxis tickLine={false} axisLine={false} type="number" domain={['dataMin', 'dataMax']} />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" fill="#282D30" />
-          <Bar dataKey="uv" fill="#E60000" />
+          <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} barSize={10}/>
+          <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} barSize={10}/>
         </BarChart>
       </ResponsiveContainer>
   )

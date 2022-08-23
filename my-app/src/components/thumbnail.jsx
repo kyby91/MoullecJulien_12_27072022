@@ -1,17 +1,27 @@
 import fire from '../data/fire.png'
-import proteine from '../data/swim.png'
+import proteine from '../data/chicken.png'
+import glucides from '../data/apple.png'
+import lipides from '../data/cheeseburger.png'
 
-function thumbnail({type, unitee, data}){
+function thumbnail({type, unity, data}){
 
   
     let img = fire;
     switch (type) {
-        case "Calorie":
+        case "Calories":
             img = fire
             break;
 
-        case "Proteine":
+        case "Proteines":
             img = proteine
+            break;
+
+        case "Glucides":
+            img = glucides
+            break;
+
+        case "Lipides":
+            img = lipides
             break;
     
         default:
@@ -21,9 +31,9 @@ function thumbnail({type, unitee, data}){
 
     return(
         <div className='thumbnail'>
-            <div className='thumbnail-icon'><img src={img} alt={`Icon de ${type}`}></img></div>
+            <div className='thumbnail-icon'><div className={type}></div><img className='thumbnail-icon-img' src={img} alt={`Icon de ${type}`}></img></div>
             <div className='thumbnail-text'>
-                <h3>{data}{unitee}</h3>
+                <h3>{data}{unity}</h3>
                 <p>{type}</p>
             </div>
         </div>
