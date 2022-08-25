@@ -1,72 +1,62 @@
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data = [
-  {
-    name: '1',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: '2',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: '3',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: '4',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: '5',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: '6',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: '7',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 
-export default function Weight(props) {
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${payload[0].value}kg`}</p>
+        <p className="label">{`${payload[1].value}kCal`}</p>
+        <p className="desc"></p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+
+export default function Weight({data}) {
+  // console.log(data)
+
+  data = data.map( (item , index) => {
+    item.name = index +1
+    
+    return item
+  })
+
+  // console.log(data)  
+
   return(
-    <ResponsiveContainer width={1200} height={300}>
-        <BarChart
-          width={500}
-          height={300}
-          data={props.data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" tickLine={false} tick={false}/>
-          <YAxis tickLine={false} axisLine={false} type="number" domain={['dataMin', 'dataMax']} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#282D30" radius={[3, 3, 0, 0]} barSize={10}/>
-          <Bar dataKey="uv" fill="#E60000" radius={[3, 3, 0, 0]} barSize={10}/>
-        </BarChart>
-      </ResponsiveContainer>
+    <div className='weight'>
+      <div className='weight-legend'>
+        <h3>Activité quotidienne</h3>
+        <div className='weight-legend-key'>
+          <i className="fas fa-solid fa-circle-small"></i><p>Poids (kg)</p>
+          <p>Calories brûlées (kCal)</p>
+        </div>
+      </div>
+      <ResponsiveContainer width='95%' height={200}>
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}>
+            <CartesianGrid strokeDasharray="3 3" vertical={false}/>
+            <XAxis dataKey="name" tickLine={false} tick={true}/>
+            <YAxis tickLine={false} axisLine={false}   orientation={'right'} tick={true}/>
+            <Tooltip  content={<CustomTooltip />}/>
+            <Bar name='Poids (kg)' dataKey="kilogram" fill="#282D30" radius={[3, 3, 0, 0]} barSize={10}/>
+            <Bar name='Calories brûlées (kCal)' dataKey="calories" fill="#E60000" radius={[3, 3, 0, 0]} barSize={10}/>
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
   )
 }

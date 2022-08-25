@@ -103,7 +103,6 @@
 .graphics-holder{
   background-color: blanchedalmond;
   width: 77%;
-  height: 600px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -195,6 +194,54 @@
 }
 
 
-.pp{
+.weight{
   width: 100%;
+  height: 320px;
+  background-color: #FBFBFB;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  border-radius: 5px;
+  position: relative;
+}
+
+.weight-legend{
+  position: absolute;
+  top: 0;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weight-legend-key{
+  display: flex;
+  flex-direction: row;
+}
+
+.custom-tooltip{
+  background-color: #E60000;
+  border: none;
+  width: 78px;
+  height: 100px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Line{
+  width: 30%;
+  background-color: #FF0000;
+}
+
+.radar{
+  width: 30%;
+  background-color: #282D30;
+}
+
+.pie{
+  width: 30%;
 }

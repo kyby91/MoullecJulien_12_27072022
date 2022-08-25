@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Label } from 'recharts';
 
-const data = [
+const data2 = [
     {
       subject: 'Math',
       A: 120,
@@ -40,15 +40,26 @@ const data = [
     },
 ];
 
-export default function radar() {
+export default function radar({data}) {
+  console.log(data)
+
+  let dataObject = data.data.map((item , index) => {
+    console.log(index)
+    item.kind = data.kind[index+1]
+    return item
+  })
+
+  console.log(dataObject)
+
   return(
-    <ResponsiveContainer width={265} height={263}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        </RadarChart>
-    </ResponsiveContainer>
+    <div className='radar'>
+      <ResponsiveContainer width='100%' height={263}>
+          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dataObject}>
+            <PolarGrid stroke='#FFFFFF'/>
+            <PolarAngleAxis dataKey="kind" />
+            <Radar name="Mike" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.6} />
+          </RadarChart>
+      </ResponsiveContainer>
+    </div>
   )
 }
