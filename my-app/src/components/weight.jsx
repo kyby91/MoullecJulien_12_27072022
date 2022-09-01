@@ -6,20 +6,25 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="custom-tooltip">
-        <p className="label">{`${payload[0].value}kg`}</p>
-        <p className="label">{`${payload[1].value}kCal`}</p>
-        <p className="desc"></p>
-      </div>
+      <div
+          style={{
+            padding: '3px 5px',
+            borderRadius: '2px',
+            background: 'red',
+            margin: 'auto',
+            color: '#FFF',
+          }}
+        >
+          <p>{`${payload[0].value} kg`}</p>
+          <p>{`${payload[1].value} kCal`} </p>
+        </div>
     );
   }
 
   return null;
 };
 
-
 export default function Weight({data}) {
-  console.log(data)
 
   data = data.map( (item , index) => {
     item.name = index +1

@@ -14,13 +14,12 @@ export default function pie({data}) {
         dataObject.push({'name': 'Group B', value: (100-data*100)})
     }
     newData()
-    console.log(dataObject);
     const COLORS = ['#FF0000', '#FBFBFB'];
 
     const renderLegend = () => {
         return (
           <div>
-            <div className="radialBarLegend">
+            <div className="pie-Legend">
               <span>{data * 100}%</span>
               <p>de votre objectif</p>
             </div>
@@ -29,8 +28,8 @@ export default function pie({data}) {
     }
 
     const style = {
-        top: '50%',
-        left: '50%'
+        top: '35%',
+        left: '30%'
     }
 
     return (
@@ -57,27 +56,27 @@ export default function pie({data}) {
                     dataKey="value"
                     >
                     </Pie>
-                  
+                    <Legend 
+                    content={renderLegend}
+                    layout="horizontal"
+                    verticalAlign="middle"
+                    wrapperStyle={style}
+                    />
+                    <text
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        className="progress-label"
+                        style={{
+                        padding: '20px',
+                        transform: 'translate(15%, 10%)',
+                        color: '#000',
+                        fontWeight: '500',
+                        }}
+                    >
+                        Score
+                    </text>
                 </PieChart>
             </ResponsiveContainer>
         </div>
-        // <div className='pie'>
-        //     <PieChart width='100%' height={400} >
-        //         <Pie
-        //         data={data}
-        //         cx={120}
-        //         cy={200}
-        //         innerRadius={60}
-        //         outerRadius={80}
-        //         fill="#8884d8"
-        //         paddingAngle={5}
-        //         dataKey="value"
-        //         >
-        //         {data.map((entry, index) => (
-        //             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        //         ))}
-        //         </Pie>
-        //     </PieChart>
-        // </div>
     );
 }

@@ -5,20 +5,59 @@ import Weight from "./components/weight.jsx";
 import Radar from './components/radar.jsx'
 import Line from './components/line.jsx'
 import Pie from './components/pie.jsx'
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+import { FetchAPIDATA } from './utils/fetchAPI.js';
 
 const Datas = require('./data/data.js')
 // const user = data.USER_MAIN_DATA
 
 
 function Home(){
+    
+    // const [userInfo2 , setUserInfo2] = useState({})
 
     const {userId} = useParams()
 
-    const DataMockOrAPI = true;
+    // useEffect(()=>{
+    //     const dataTest = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)) ;
+    //     // console.log(userInfo2, dataTest)
+    //     setUserInfo2(dataTest)
+    //     console.log(userInfo2)
+    // }, [userId, userInfo2 , setUserInfo2]);
+
+    
+
+    const DataMockOrAPI = false;
+
+
+    // fetch("http://localhost:3000/user/18")
+    // .then((data) => {
+    //    return data.json()
+    // })
+    // .then((data) => {
+    //     console.log(data)
+    // })
+
    
 
-    const dataMain  = Datas.USER_MAIN_DATA
-    const userInfo = dataMain.find(elt => elt.id === parseInt(userId))
+    // console.log(FetchAPIDATA());
+    
+ 
+    const userInfo = DataMockOrAPI ? Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)) : FetchAPIDATA(userId)
+    // const userInfo = false
+    // const userInfo = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId))
+
+    if(!userInfo){
+        return(
+            <div className='home'>
+                 <h1>Loading...</h1>
+            </div> 
+        )
+    }
+
+    console.log(userInfo)
     
 
     const userActivity = Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId))
@@ -27,9 +66,8 @@ function Home(){
     const time = Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)).sessions
     
     const radar = Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId))
-    const pie = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)).todayScore
-    console.log(pie);
-
+    const pieAllData = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId))
+    const pie = pieAllData.todayScore ? pieAllData.todayScore : pieAllData.score
 
     // function mocked
 
@@ -52,36 +90,6 @@ function Home(){
 
 
 
-    let dataWeight = []
-   
-
-    let dataLine = []
-    let newDataLine = ()=>{
-        
-        for (let i = 0; i < time.length; i++) {
-            const elt = time[i];
-            dataLine.push({
-                'pv': elt.sessionLength
-            })
-        }
-        return(dataWeight)
-    }
-    newDataLine()
-
-    let dataRadar = []
-    let newDataRadar = ()=>{
-        
-        for (let i = 0; i < radar.kind.length; i++) {
-            const elt = time[i];
-            dataRadar.push({
-                'subject': elt.kind[i+1],
-                'A': elt.data.value[i]
-            })
-        }
-        return(dataWeight)
-    }
-    newDataRadar()
-    // console.log(dataRadar);
     
 
 
@@ -91,7 +99,7 @@ function Home(){
             <div className='info-holder'>
                 <div className='graphics-holder'>
                     <Weight data={sessions}/>
-                    <Line data={dataLine}/>
+                    <Line data={time}/>
                     <Radar data={radar}/>
                     <Pie data={pie}/>
                     
