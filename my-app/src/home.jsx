@@ -27,25 +27,27 @@ function Home(){
     const time = Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)).sessions
     
     const radar = Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId))
+    const pie = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)).todayScore
+    console.log(pie);
 
 
-// function mocked
+    // function mocked
 
-// const dataMain  = Datas.USER_MAIN_DATA
-// const userInfo = dataMain.find(elt => elt.id === parseInt(userId))
-
-
-// const userActivity = Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId))
-
-// const sessions = userActivity.sessions
-// const time = Datas..find(elt => elt.userId === parseInt(userId)).sessions
-
-// const radar = Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId))
-
-// return {USER_PERFORMANCE,USER_AVERAGE_SESSIONS  }
+    // const dataMain  = Datas.USER_MAIN_DATA
+    // const userInfo = dataMain.find(elt => elt.id === parseInt(userId))
 
 
-// const  {USER_PERFORMANCE,USER_AVERAGE_SESSIONS  } = fucntonMocked(userId)
+    // const userActivity = Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId))
+
+    // const sessions = userActivity.sessions
+    // const time = Datas..find(elt => elt.userId === parseInt(userId)).sessions
+
+    // const radar = Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId))
+
+    // return {USER_PERFORMANCE,USER_AVERAGE_SESSIONS  }
+
+
+    // const  {USER_PERFORMANCE,USER_AVERAGE_SESSIONS  } = fucntonMocked(userId)
 
 
 
@@ -79,7 +81,7 @@ function Home(){
         return(dataWeight)
     }
     newDataRadar()
-    console.log(dataRadar);
+    // console.log(dataRadar);
     
 
 
@@ -91,7 +93,7 @@ function Home(){
                     <Weight data={sessions}/>
                     <Line data={dataLine}/>
                     <Radar data={radar}/>
-                    <Pie data={radar}/>
+                    <Pie data={pie}/>
                     
                     
                 </div>

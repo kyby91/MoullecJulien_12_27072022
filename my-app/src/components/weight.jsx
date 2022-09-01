@@ -19,7 +19,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 
 export default function Weight({data}) {
-  // console.log(data)
+  console.log(data)
 
   data = data.map( (item , index) => {
     item.name = index +1

@@ -41,21 +41,21 @@ const data2 = [
 ];
 
 export default function radar({data}) {
-  console.log(data)
+  // console.log(data)
 
   let dataObject = data.data.map((item , index) => {
-    console.log(index)
+    // console.log(index)
     item.kind = data.kind[index+1]
     return item
   })
 
-  console.log(dataObject)
+  // console.log(dataObject)
 
   return(
     <div className='radar'>
       <ResponsiveContainer width='100%' height={263}>
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dataObject}>
-            <PolarGrid stroke='#FFFFFF'/>
+            <PolarGrid stroke='#FFFFFF' radialLines={false}/>
             <PolarAngleAxis dataKey="kind" />
             <Radar name="Mike" dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.6} />
           </RadarChart>
