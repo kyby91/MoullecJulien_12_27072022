@@ -29,7 +29,7 @@ export default function pie({data}) {
 
     const style = {
         top: '35%',
-        left: '30%'
+        left: '36%'
     }
 
     return (

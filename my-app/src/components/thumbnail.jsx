@@ -1,7 +1,7 @@
-import fire from '../data/fire.png'
-import proteine from '../data/chicken.png'
-import glucides from '../data/apple.png'
-import lipides from '../data/cheeseburger.png'
+import fire from '../image/fire.png'
+import proteine from '../image/chicken.png'
+import glucides from '../image/apple.png'
+import lipides from '../image/cheeseburger.png'
 
 function thumbnail({type, unity, data}){
 

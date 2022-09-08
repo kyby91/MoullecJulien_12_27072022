@@ -1,9 +1,9 @@
 import '../App.css';
-import logo from '../data/logo.png'
-import swim from '../data/swim.png'
-import bycycle from '../data/bycycle.png'
-import dumbbell from '../data/dumbbell.png'
-import yoga from '../data/yoga.png'
+import logo from '../image/logo.png'
+import swim from '../image/swim.png'
+import bycycle from '../image/bycycle.png'
+import dumbbell from '../image/dumbbell.png'
+import yoga from '../image/yoga.png'
 
 
 function banner()  {

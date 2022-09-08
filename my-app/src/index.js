@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Banner from './components/banner.jsx';
 import reportWebVitals from './reportWebVitals';
-import Home from './home.jsx';
+import Home from './view/home.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
