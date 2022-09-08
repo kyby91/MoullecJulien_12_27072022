@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 import { FetchAPIDATA } from '../utils/fetchAPI.js';
-import useFetch from "../utils/fetchAPI";
+import FetchAPI from "../utils/fetchAPI";
 
 const Datas = require('../data/data.js')
 // const user = data.USER_MAIN_DATA
@@ -24,58 +24,60 @@ function Home(){
 
     const DataMockOrAPI = false;
 
-    const { data : info } = useFetch(`http://localhost:3000/user/${userId}`)
-    const { data : average } = useFetch(`http://localhost:3000/user/${userId}/average-sessions`)
-    const {data : activity} = useFetch(`http://localhost:3000/user/${userId}/activity`)
-    const {data : performance} = useFetch(`http://localhost:3000/user/${userId}/performance`)
- 
-    // const userInfo = DataMockOrAPI ? Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)) : FetchAPIDATA(userId);
-    // const userInfo = false
-    const userInfo = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId))
+    // if(!DataMockOrAPI){
+        // const {data : userInfo } = useFetch(`http://localhost:3000/user/${userId}`)
+        // const {data : average} = useFetch(`http://localhost:3000/user/${userId}/average-sessions`)
+        // const {data : activity} = useFetch(`http://localhost:3000/user/${userId}/activity`)
+        // const {data : performance} = useFetch(`http://localhost:3000/user/${userId}/performance`)
+    // }
 
-    if(!userInfo){
+    let loading = false;
+
+    const userInfo = DataMockOrAPI ? Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}`) 
+    const userActivity = DataMockOrAPI ? Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/activity`)
+    const time = DataMockOrAPI ? Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/average-sessions`)
+    const radar = DataMockOrAPI ? Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/performance`)
+   
+    console.log(userActivity )
+
+
+    if(userInfo && userActivity && time && radar){
+        loading = true;
+    }
+       
+    
+    if(!loading){
         return(
             <div className='home'>
                  <h1>Loading...</h1>
             </div> 
         )
-    }
-
-    
-    
-
-    const userActivity = Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId))
-
-    const sessions = userActivity.sessions
-    const time = Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)).sessions
-    
-    const radar = Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId))
-    const pieAllData = Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId))
-    const pie = pieAllData.todayScore ? pieAllData.todayScore : pieAllData.score
-    
-
-
-    return(
-        <div className='home'>
-            {info && <Hello name={info.data.userInfos.firstName}/>}
-            <div className='info-holder'>
-                <div className='graphics-holder'>
-                    {activity && <Weight data={activity.data.sessions}/>}
-                    {average && <Line data={average.data.sessions}/>}
-                    {performance && <Radar data={performance.data}/>}
-                    {info && <Pie data={info.data.todayScore ? pieAllData.todayScore : pieAllData.score}/>}
-                    
-                    
+        
+        }else{
+            return(
+                <div className='home'>
+                    <Hello name={userInfo.userInfos.firstName}/>
+                    <div className='info-holder'>
+                        <div className='graphics-holder'>
+                            <Weight data={userActivity.sessions}/>
+                            <Line data={time.sessions}/>
+                            <Radar data={radar}/>
+                            <Pie data={userInfo.todayScore ? userInfo.todayScore : userInfo.score}/>
+                            
+                            
+                        </div>
+                        <div className='numbers-holder'>
+                            <Thumbnail data={userInfo.keyData.calorieCount} type="Calories" unity="kCal"/>
+                            <Thumbnail data={userInfo.keyData.proteinCount} type="Proteines" unity="g" icon="proteine"/> 
+                            <Thumbnail data={userInfo.keyData.carbohydrateCount} type="Glucides" unity="g" icon="proteine"/> 
+                            <Thumbnail data={userInfo.keyData.lipidCount} type="Lipides" unity="g" icon="proteine"/>
+                        </div>
+                    </div>
                 </div>
-                <div className='numbers-holder'>
-                    {info && <Thumbnail data={info.data.keyData.calorieCount} type="Calories" unity="kCal"/> }
-                    {info && <Thumbnail data={info.data.keyData.proteinCount} type="Proteines" unity="g" icon="proteine"/> }
-                    {info && <Thumbnail data={info.data.keyData.carbohydrateCount} type="Glucides" unity="g" icon="proteine"/> }
-                    {info && <Thumbnail data={info.data.keyData.lipidCount} type="Lipides" unity="g" icon="proteine"/> }
-                </div>
-            </div>
-        </div>
-    )
+            )
+        }
+
+    
 }
 
 export default Home;

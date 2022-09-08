@@ -25,7 +25,7 @@ import  { useEffect, useState } from "react";
 
 // }
 
-function useFetch(url) {
+function FetchAPI(url) {
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -35,14 +35,15 @@ function useFetch(url) {
     fetch(url)
     .then(res => res.json())
     .then(res => {
-      setData(res)
+      setData(res.data)
       setIsLoading(false);
     })
     .catch(err => setError(err));
     },[url]);
 
-    return { data, error, isLoading };
+    // return { data, error, isLoading };
+    return data;
 }
     
 
-export default useFetch;
+export default FetchAPI;
