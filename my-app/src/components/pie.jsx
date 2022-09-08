@@ -1,17 +1,21 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend } from 'recharts';
+import React from 'react';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const data2 = [
   { name: 'Group A', value: 100 },
 ];
 
+
+//this component is the graphic pie
 export default function pie({data}) {
 
 
     let dataObject = []
+    //we set the value of the data to have a great render
     let newData = () =>{
-        dataObject.push({'name': 'Group A', value: data*100})
-        dataObject.push({'name': 'Group B', value: (100-data*100)})
+        //the amouunt of the pie is 100
+        dataObject.push({'name': 'Group A', value: data*100})//our value
+        dataObject.push({'name': 'Group B', value: (100-data*100)})//the opposite value
     }
     newData()
     const COLORS = ['#FF0000', '#FBFBFB'];

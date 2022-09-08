@@ -1,3 +1,5 @@
+//this component display the name of the user
+
 function hello(props){
     return(
         <div className="hello">

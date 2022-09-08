@@ -1,8 +1,10 @@
-import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import { LineChart, Line, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 
+
+//this constant custom the tooltip
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -21,14 +23,14 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-
+//this component is the graphic line
 export default function line({data}) {
 
   const formatXAxis = (elm) => {
     const weekday = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
     return `${weekday[elm - 1]}`
   }
-
+  //here we custom the legend
   const renderLegend = () => {
     return (
       <div
