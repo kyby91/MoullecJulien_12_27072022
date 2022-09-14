@@ -24,7 +24,6 @@ function Home(){
     const time = DataMockOrAPI ? Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/average-sessions`)
     const radar = DataMockOrAPI ? Datas.USER_PERFORMANCE.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/performance`)
    
-    console.log(userActivity )
 
     //if the data from API are loaded we set loading true
     if(userInfo && userActivity && time && radar){

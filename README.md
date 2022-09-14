@@ -40,4 +40,5 @@ Warning, currently only two users have been mocked. They have userId 12 and 18 r
 Examples of queries :
 
 • http://localhost:3000/user/12/performance - Retrieves the performance of the user with id 12
+
 • http://localhost:3000/user/18 - Retrieves user 18's main information.
