@@ -5,31 +5,17 @@ import Weight from "../components/weight.jsx";
 import Radar from '../components/radar.jsx'
 import Line from '../components/line.jsx'
 import Pie from '../components/pie.jsx'
-import { useState } from 'react';
-import { useEffect } from 'react';
 
-import { FetchAPIDATA } from '../utils/fetchAPI.js';
 import FetchAPI from "../utils/fetchAPI";
-
 const Datas = require('../data/data.js')
 // const user = data.USER_MAIN_DATA
 
 
 function Home(){
     
-
     const {userId} = useParams()
 
-
-
     const DataMockOrAPI = false;
-
-    // if(!DataMockOrAPI){
-        // const {data : userInfo } = useFetch(`http://localhost:3000/user/${userId}`)
-        // const {data : average} = useFetch(`http://localhost:3000/user/${userId}/average-sessions`)
-        // const {data : activity} = useFetch(`http://localhost:3000/user/${userId}/activity`)
-        // const {data : performance} = useFetch(`http://localhost:3000/user/${userId}/performance`)
-    // }
 
     let loading = false;
 
@@ -40,11 +26,9 @@ function Home(){
    
     console.log(userActivity )
 
-
     if(userInfo && userActivity && time && radar){
         loading = true;
-    }
-       
+    }       
     
     if(!loading){
         return(

@@ -28,20 +28,15 @@ import  { useEffect, useState } from "react";
 function FetchAPI(url) {
 
   const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   
   useEffect(() => {
     fetch(url)
     .then(res => res.json())
     .then(res => {
       setData(res.data)
-      setIsLoading(false);
     })
-    .catch(err => setError(err));
     },[url]);
 
-    // return { data, error, isLoading };
     return data;
 }
     

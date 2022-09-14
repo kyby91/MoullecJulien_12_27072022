@@ -1,4 +1,5 @@
-# Project SportSee
+# Project SportSee 
+![alt text](/my-app/src/image/logo.png)
 This is a dashboard page for the user, the user will can see is key data : the time of a session, is weight,... . 
 He will see the data on a week or day per day.
 
