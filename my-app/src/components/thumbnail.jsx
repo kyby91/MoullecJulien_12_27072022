@@ -3,9 +3,17 @@ import proteine from '../image/chicken.png'
 import glucides from '../image/apple.png'
 import lipides from '../image/cheeseburger.png'
 
+/**
+ * Key Info
+ * @param {*} type props.type 
+ * @param {*} unity props.unity
+ * @param {number} data props.data
+ * @returns the thumbnail
+ */
+
 function thumbnail({type, unity, data}){
 
-  
+    //select the good icon 
     let img = fire;
     switch (type) {
         case "Calories":

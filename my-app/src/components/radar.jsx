@@ -1,13 +1,18 @@
-import React, { PureComponent } from 'react';
-import { Radar, RadarChart, PolarGrid, Legend, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Label } from 'recharts';
+import React from 'react';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis,  ResponsiveContainer} from 'recharts';
 
-
+/**
+ * User performance
+ * @param {object} data props.data 
+ * @returns radar graphic
+ */
 
 export default function radar({data}) {
+  //set the first letter in Capital
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
+  
   let dataObject = data.data.map((item , index) => {
     item.kind = capitalizeFirstLetter(data.kind[index+1])
     return item

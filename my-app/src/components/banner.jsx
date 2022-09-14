@@ -5,8 +5,7 @@ import bycycle from '../image/bycycle.png'
 import dumbbell from '../image/dumbbell.png'
 import yoga from '../image/yoga.png'
 
-//this function is here to display the vertical and horizontal banner
-
+//display the vertical and horizontal banner
 function banner()  {
     return(
         <div className="banner">

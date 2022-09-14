@@ -1,38 +1,40 @@
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div
-          style={{
-            padding: '3px 5px',
-            borderRadius: '2px',
-            background: 'red',
-            margin: 'auto',
-            color: '#FFF',
-          }}
-        >
-          <p>{`${payload[0].value} kg`}</p>
-          <p>{`${payload[1].value} kCal`} </p>
-        </div>
-    );
-  }
-
-  return null;
-};
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+/**
+ * Daily activity
+ * @param {array} data props.data
+ * @returns the BarCharts
+ */
 
 export default function Weight({data}) {
-
+  //set the Xaxis graduation name
   data = data.map( (item , index) => {
     item.name = index +1
     
     return item
   })
 
-  // console.log(data)  
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+            style={{
+              padding: '3px 5px',
+              borderRadius: '2px',
+              background: 'red',
+              margin: 'auto',
+              color: '#FFF',
+            }}
+          >
+            <p>{`${payload[0].value} kg`}</p>
+            <p>{`${payload[1].value} kCal`} </p>
+          </div>
+      );
+    }
+  
+    return null;
+  };
+
 
   return(
     <div className='weight'>

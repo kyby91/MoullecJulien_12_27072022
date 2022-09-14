@@ -1,31 +1,34 @@
 import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+/**
+ * User time session
+ * @param {array} data props.data 
+ * @returns 
+ */
 
-
-
-//this constant custom the tooltip
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div style={{
-        padding: '3px 5px',
-        borderRadius: '2px',
-        background: '#FFF',
-        margin: 'auto',
-      }}>
-        <p className="label">{`${payload[0].value}min`}</p>
-        <p className="desc"></p>
-      </div>
-    );
-  }
-
-  return null;
-};
-
-//this component is the graphic line
 export default function line({data}) {
 
+  //this constant custom the tooltip
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div style={{
+          padding: '3px 5px',
+          borderRadius: '2px',
+          background: '#FFF',
+          margin: 'auto',
+        }}>
+          <p className="label">{`${payload[0].value}min`}</p>
+          <p className="desc"></p>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  //change the Xaxis graduation name 
   const formatXAxis = (elm) => {
     const weekday = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
     return `${weekday[elm - 1]}`

@@ -5,10 +5,10 @@ import Weight from "../components/weight.jsx";
 import Radar from '../components/radar.jsx'
 import Line from '../components/line.jsx'
 import Pie from '../components/pie.jsx'
-
 import FetchAPI from "../utils/fetchAPI";
+
 const Datas = require('../data/data.js')
-// const user = data.USER_MAIN_DATA
+
 
 
 function Home(){
@@ -16,9 +16,9 @@ function Home(){
     const {userId} = useParams()
 
     const DataMockOrAPI = false;
-
     let loading = false;
 
+    //if mocked data false we use data from API
     const userInfo = DataMockOrAPI ? Datas.USER_MAIN_DATA.find(elt => elt.id === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}`) 
     const userActivity = DataMockOrAPI ? Datas.USER_ACTIVITY.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/activity`)
     const time = DataMockOrAPI ? Datas.USER_AVERAGE_SESSIONS.find(elt => elt.userId === parseInt(userId)) : FetchAPI(`http://localhost:3000/user/${userId}/average-sessions`)
@@ -26,10 +26,12 @@ function Home(){
    
     console.log(userActivity )
 
+    //if the data from API are loaded we set loading true
     if(userInfo && userActivity && time && radar){
         loading = true;
     }       
-    
+
+    //so if loading true we display the page
     if(!loading){
         return(
             <div className='home'>

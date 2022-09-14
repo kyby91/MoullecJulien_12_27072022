@@ -1,19 +1,25 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
-const data2 = [
-  { name: 'Group A', value: 100 },
-];
-
+/**
+ * User day score
+ * @param {number} data props.data
+ * @returns Pie grraphic
+ */
 
 //this component is the graphic pie
 export default function pie({data}) {
 
+    //data for the invisble pie
+    const data2 = [
+    { name: 'Group A', value: 100 },
+    ];
 
     let dataObject = []
-    //we set the value of the data to have a great render
+
+    //we set the value of item for dataObject
     let newData = () =>{
-        //the amouunt of the pie is 100
+        //the total of the pie is 100
         dataObject.push({'name': 'Group A', value: data*100})//our value
         dataObject.push({'name': 'Group B', value: (100-data*100)})//the opposite value
     }
@@ -30,7 +36,7 @@ export default function pie({data}) {
           </div>
         )
     }
-
+    
     const style = {
         top: '35%',
         left: '36%'
