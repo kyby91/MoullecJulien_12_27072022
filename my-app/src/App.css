@@ -220,6 +220,14 @@
 .weight-legend-key{
   display: flex;
   flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.weight-legend-key>div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .custom-tooltip{
@@ -270,4 +278,12 @@
   color: #74798C;
   padding-left: 30px;
   margin: 0;
+}
+
+#red{
+  color: #E60000;
+}
+
+#black{
+  color: black;
 }

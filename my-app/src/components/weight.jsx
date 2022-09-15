@@ -41,8 +41,8 @@ export default function Weight({data}) {
       <div className='weight-legend'>
         <h3>Activité quotidienne</h3>
         <div className='weight-legend-key'>
-          <i className="fas fa-solid fa-circle-small"></i><p>Poids (kg)</p>
-          <p>Calories brûlées (kCal)</p>
+          <div><i class="fa-solid fa-circle" id="black"></i> <p>Poids (kg)</p></div>
+          <div><i class="fa-solid fa-circle" id="red"></i> <p>Calories brûlées (kCal)</p></div>        
         </div>
       </div>
       <ResponsiveContainer width='95%' height={200}>
