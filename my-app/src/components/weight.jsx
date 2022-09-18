@@ -1,9 +1,9 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 /**
- * Daily activity
- * @param {array} data props.data
- * @returns the BarCharts
+ * Graphic Daily activity
+ * @param {*} data Information of user activity
+ * @returns BarCharts graphic
  */
 
 export default function Weight({data}) {
@@ -41,8 +41,8 @@ export default function Weight({data}) {
       <div className='weight-legend'>
         <h3>Activité quotidienne</h3>
         <div className='weight-legend-key'>
-          <div><i class="fa-solid fa-circle" id="black"></i> <p>Poids (kg)</p></div>
-          <div><i class="fa-solid fa-circle" id="red"></i> <p>Calories brûlées (kCal)</p></div>        
+          <div><i class="fa-solid fa-circle" id="black"></i> &nbsp;<p>Poids (kg)</p></div>
+          <div><i class="fa-solid fa-circle" id="red"></i> &nbsp;<p>Calories brûlées (kCal)</p></div>        
         </div>
       </div>
       <ResponsiveContainer width='95%' height={200}>

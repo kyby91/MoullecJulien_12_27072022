@@ -6,6 +6,12 @@ import dumbbell from '../image/dumbbell.png'
 import yoga from '../image/yoga.png'
 
 //display the vertical and horizontal banner
+
+/**
+ * Navigation banner
+ * @returns Vertical/Horizontal banner
+ */
+
 function banner()  {
     return(
         <div className="banner">

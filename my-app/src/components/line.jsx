@@ -2,9 +2,9 @@ import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 /**
- * User time session
- * @param {array} data props.data 
- * @returns 
+ * Graphic User time session
+ * @param {*} data Information of user average session
+ * @returns Line graphic
  */
 
 export default function line({data}) {

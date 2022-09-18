@@ -2,9 +2,9 @@ import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 /**
- * User day score
- * @param {number} data props.data
- * @returns Pie grraphic
+ * Graphic User day score
+ * @param {*} data  Information of user score
+ * @returns Pie graphic
  */
 
 //this component is the graphic pie

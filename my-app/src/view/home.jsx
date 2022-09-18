@@ -9,7 +9,11 @@ import FetchAPI from "../utils/fetchAPI";
 
 const Datas = require('../data/data.js')
 
-
+/**
+ * Page with all the components
+ * @param {object} userId Wich user is loged
+ * @returns the page with the information of a user
+ */
 
 function Home(){
     

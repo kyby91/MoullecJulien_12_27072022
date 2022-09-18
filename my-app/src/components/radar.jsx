@@ -2,9 +2,9 @@ import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis,  ResponsiveContainer} from 'recharts';
 
 /**
- * User performance
- * @param {object} data props.data 
- * @returns radar graphic
+ * Graphic User performance
+ * @param {*} data Information of user performance
+ * @returns Radar graphic
  */
 
 export default function radar({data}) {

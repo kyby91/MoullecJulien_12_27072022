@@ -4,11 +4,11 @@ import glucides from '../image/apple.png'
 import lipides from '../image/cheeseburger.png'
 
 /**
- * Key Info
- * @param {*} type props.type 
- * @param {*} unity props.unity
- * @param {number} data props.data
- * @returns the thumbnail
+ * Small card with key info
+ * @param {*} type information of the type of data for the
+ * @param {*} unity unity of the key data
+ * @param {*} data Information of the key data
+ * @returns thumbnail
  */
 
 function thumbnail({type, unity, data}){

@@ -1,4 +1,11 @@
 //display the name of the user
+
+/**
+ * Welcome message
+ * @param {*} props the name of the user
+ * @returns welcome message
+ */
+
 function hello(props){
     return(
         <div className="hello">
